@@ -1,0 +1,76 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<style type="text/css">
+body {
+border: 1px solid grey;
+padding: 20px;
+width:100%;
+margin: 20px;
+margin-right: 30px;
+    
+}
+
+p { 
+border: 1px solid grey; 
+background: white;
+padding:20px;
+boder: 1px solid 
+width:200px;
+float: left;
+//position:fixed;
+}
+
+p#self_introduction {
+float:left;
+margin-left: 10px;
+max-width: 50%;
+height: 80%;
+}
+
+p.class_right {
+margin:20px;
+margin-top:18px;
+
+float: right;
+width: 100px;
+}
+
+img {
+border: 1px solid grey; 
+width: 80px; 
+height:80px;
+float:left;
+}
+
+</style>
+</head>
+
+<body style="background:#eee">
+<p> 
+<img src="http://img5.duitang.com/uploads/item/201512/25/20151225032013_Qw4j8.jpeg">
+Double1
+</p>
+<p id="self_introduction">
+who am i? Pls tell me what can i do to improve my self. thinik deeply; think concentrately
+</p>
+
+<p class="class_right"> 
+<img src="http://img5.duitang.com/uploads/item/201512/25/20151225032013_Qw4j8.jpeg">
+
+Double
+  
+<img src="http://img5.duitang.com/uploads/item/201512/25/20151225032013_Qw4j8.jpeg">
+Double
+  <img src="http://img5.duitang.com/uploads/item/201512/25/20151225032013_Qw4j8.jpeg">
+Double
+  <img src="http://img5.duitang.com/uploads/item/201512/25/20151225032013_Qw4j8.jpeg">
+Double
+  
+</p>
+
+
+
+
+
+
+
+</body></html>
