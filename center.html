@@ -1,0 +1,72 @@
+<html>
+<head>
+<style type="text/css">
+#id_center {
+	position: absolute;
+	width: 400px;
+	height: 200px;
+	border: 1px solid grey;
+    left: 50%;
+	top: 50%;
+//	margin-left: -200px;
+//	margin-top: -100px;
+	transform: translate(-50%,-50%);
+	background-color: #cccccc;
+//	margin: auto;
+
+//	border-radius: 100%;
+	text-align: center;
+//	padding: 50px;
+	
+}
+
+#id_radius_top {
+	position: absolute;
+//	border: 5px solid brown;
+//	margin:10px;
+
+/*-------------------------------------------------------------------
+The positioning markups of top,bottom,left,right means the offset:
+	child's margin edge - parent's padding edge
+---------------------------------------------------------------------*/
+	
+	top: 0px;
+	left: 0px;
+	width: 50px;
+	height: 50px;
+	border-bottom-right-radius: 100%;
+	background-color: #ffcc00;
+}
+
+#id_radius_bottom {
+	position: absolute;
+    bottom: 0px;
+	right: 0px;
+	
+	width: 50px;
+	height: 50px;
+	background-color: #ffcc00;
+	border-top-left-radius: 100%
+}
+
+</style>
+</head>
+
+<body>
+<div id=id_center>
+	CPP Good Luck!
+
+	<div class="class_radius" id="id_radius_top">
+	</div>
+    <div class="class_radius" id="id_radius_bottom"> 
+	</div>
+		
+
+
+	
+</div>
+
+
+</body>
+
+</html>
