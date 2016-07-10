@@ -1,0 +1,23 @@
+#chart-div {
+	width: 98%;
+	border: 1px solid grey;
+}
+
+
+.chart-p1 {
+	width: 5px;
+	height: 150;
+	border: 1px solid grey;
+	background-color: #f6f;
+	display: inline-block;
+	/*margin: 1px;*/
+}
+
+.chart-p2 {
+	width: 5px;
+	height: 200;
+	border: 1px solid grey;
+	background-color: #f6f;
+	display: inline-block;
+	/*margin: 1px;*/
+}
