@@ -1,7 +1,7 @@
 /************************************************************************
-//  testing of divide and conquer algorithm in sorting
-//  define f(a) as sort array a
-// f(a)=f(b)+f(c)+sortTwoSortedArray(b,c)
+*  testing of divide and conquer algorithm in sorting
+*  define f(a) as sort array a
+* f(a)=f(b)+f(c)+sortTwoSortedArray(b,c)
 ************************************************************************/
 /**
  *
