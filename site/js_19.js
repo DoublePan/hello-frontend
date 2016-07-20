@@ -1,9 +1,21 @@
 /**
  *Array numArray used to store height of all boxes
  *
+ *global variable should be re-initiated when sort is called
  */
 var numArray=new Array();
 
+/**
+ *variables for visual sorts
+ */
+var boxes=document.getElementById("boxes-div").getElementsByClassName("box");
+var boxLen=boxes.length;
+var boxMiddle=Math.floor((boxLen-1)/2);
+var boxIndex=0;
+var boxCount=0; //key variable for visual sort
+var zeroFlag=-1;
+var oneFlag=-1;
+var twoFlag=-1;
 
 
 
@@ -24,7 +36,7 @@ function adjustBox() {
 	var boxesDiv=document.getElementById("boxes-div");
 	var num=document.getElementById("num-input").value;
 	if (num!="") {
-		  // newBox.innerHTML=num;
+		newBox.title=num;
 		newBox.style.height=num+"px";
 		switch(this.id) {
 			case "leftin-btn":
@@ -52,12 +64,13 @@ function adjustBox() {
 			break;
 	}
 	if(this.id=="random-btn") {
-		var i=88;
+		var i=66; // bug for >=6
 		boxesDiv.innerHTML="";
 		while (i--) {
 			var newBox=document.createElement("div");
 			newBox.className="box";
-			newBox.style.height=(Math.random()+0.3)*100+"px";
+			newBox.style.height=Math.ceil((Math.random()+0.3)*100)+"px";
+			newBox.title=newBox.style.height;
 			boxesDiv.appendChild(newBox);
 		}
 	}
@@ -98,17 +111,27 @@ function sortBox() {
     for (var i=0; i<boxes.length;i++ )	{
    		numArray[i]=parseFloat(boxes[i].style.height.replace("px",""));				
     }
-    console.log(mergeSort(numArray));
+   
+    boxLen=boxes.length;
+    boxMiddle=Math.floor((boxLen-1)/2);
+    boxIndex=0;
+	boxCount=0; //key variable
+	zeroFlag=-1;
+	oneFlag=-1;
+	twoFlag=-1;
+
+    console.log(mergeSort(numArray,0));
 }
 
 
 
 /**
- *function mergeSort(a)
+ *function mergeSort(a,aFlag)
  *divide phase: a is the array to be sorted
+ *				aFlag: 0-original array; 1 first half;2 second half
  */
 
-function mergeSort(a) {
+function mergeSort(a,aFlag) {
 	var len=a.length;
  	if (len==1) return a;
  	var middle=Math.floor((len-1)/2)
@@ -125,20 +148,34 @@ function mergeSort(a) {
  			c[i-middle-1]=a[i];
  	}
  	//sort b and c
- 	b=mergeSort(b);
- 	c=mergeSort(c);
- 	a=sortTwoSortedArray(b,c);
+ 	if(aFlag==0) {
+	 	b=mergeSort(b,1);
+	 	c=mergeSort(c,2);
+ 	}
+
+ 	 if(aFlag==1) {
+	 	b=mergeSort(b,1);
+	 	c=mergeSort(c,1);
+ 	}
+
+ 	if(aFlag==2) {
+	 	b=mergeSort(b,2);
+	 	c=mergeSort(c,2);
+ 	}
+
+
+ 	a=sortTwoSortedArray(b,c,aFlag);
  	//console.log(a);
  	return a;
 }
 
 /**
  *
- *function sortTwoSortedArray(b,c)
+ *function sortTwoSortedArray(b,c,aFlag)
  *
  */
 
- function sortTwoSortedArray(b,c) {
+ function sortTwoSortedArray(b,c,aFlag) {
  	
  	var bLen=b.length;
  	var cLen=c.length;
@@ -146,11 +183,13 @@ function mergeSort(a) {
  	var aIndex=0;
  	var bIndex=0;
  	var cIndex=0;
- 	//if b  reaches the end, how to compare??
+
+ 	boxCount=boxCount+bLen+cLen; //key variable for visual sort
+ 	 	//if b  reaches the end, how to compare??
  	while (bLen!=0 || cLen!=0) {
  		if (cLen==0) {
  			a[aIndex]=b[bIndex];
- 			visualSort(a[aIndex]);
+ 			visualSort(a[aIndex],bLen+cLen,aFlag);
 
  			aIndex++;
  			bIndex++;
@@ -158,14 +197,14 @@ function mergeSort(a) {
  			
  		} else if (b[bIndex]<c[cIndex]) {
  			a[aIndex]=b[bIndex];
- 			visualSort(a[aIndex]);
+ 			visualSort(a[aIndex],bLen+cLen,aFlag);
 
  			aIndex++;
  			bIndex++;
  			bLen--;
  		} else {
  			a[aIndex]=c[cIndex];
- 			visualSort(a[aIndex]);
+ 			visualSort(a[aIndex],bLen+cLen,aFlag);
 
  			aIndex++;
  			cIndex++;
@@ -181,19 +220,44 @@ function mergeSort(a) {
 
 /**
  *
- *function sortTwoSortedArray(b,c)
- *
+ *function visualSort(b,c,aFlag)
+ * 	//divede a to two array
+ *	//3: 0-1 2
+ *	//4: 0-1 2-3
+ *	//5: 0-2 3-4
  */
-var boxes=document.getElementById("boxes-div").getElementsByClassName("box");
-var boxLen=boxes.length;
-var boxMiddle=Math.floor((boxLen-1)/2)
-var boxIndex=0;
-var boxCount=0; //boxCount<=N*logN
 
- function visualSort(heightofBox) {
- //to do: how to set boxIndex according boxCount
+
+
+ function visualSort(heightofBox,totalLen,aFlag) {
+ //to do: how to set boxIndex according totalLen=two sorted array's total length
  //setTimeout的异步机制，从而会呈现高度同时在变的效果
- 	boxes[boxIndex].style.height=heightofBox;
+ 	
+
+ 	if (aFlag==0) {
+ 		if (zeroFlag==-1) { //reset boxIndex:first entrance of orginal array 
+ 			boxIndex=0;	
+ 			zeroFlag=0;
+ 			boxCount=totalLen;
+ 		} 
+ 			
+ 	} else if (aFlag==1) {
+ 		if (oneFlag==-1 || boxCount>boxMiddle+1) {//reset boxIndex:first entrance of 1st half array or another merge
+ 			boxIndex=0;	
+ 			oneFlag=1;
+ 			boxCount=totalLen;
+ 		} 
+ 	} else if (aFlag==2 ) {
+ 		if (twoFlag==-1 || boxCount>boxLen-boxMiddle-1) {//reset boxIndex:first entrance of 2rd half array or another merge
+ 			boxIndex=boxMiddle+1;
+ 			twoFlag=2;
+ 			boxCount=totalLen;	
+ 		} 
+ 	}
+
+ 	boxes[boxIndex].style.height=heightofBox+"px";
+ 	boxes[boxIndex].title=boxes[boxIndex].style.height;
+ 	boxIndex++;
  }
 
 
