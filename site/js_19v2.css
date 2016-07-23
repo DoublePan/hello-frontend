@@ -1,0 +1,17 @@
+#show-div {
+	width: 95%;
+	/*border: 1px solid grey;*/
+	/*margin: 8px;*/
+}
+
+.box {
+	width: 10px;
+	height: 50px;
+	display: inline-block;
+	background-color: brown;
+	margin: 1px;
+	text-align: center;
+	line-height: 50px;
+	color: white;
+	overflow: hidden;
+}

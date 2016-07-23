@@ -255,7 +255,7 @@ function mergeSort(a,aFlag) {
  		} 
  	}
 
- 	boxes[boxIndex].style.height=heightofBox+"px";
+ 	boxes[boxIndex].style.height=heightofBox+'px';
  	boxes[boxIndex].title=boxes[boxIndex].style.height;
  	boxIndex++;
  }
