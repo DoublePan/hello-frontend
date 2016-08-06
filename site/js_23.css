@@ -1,0 +1,58 @@
+.outer {
+	height: 200px;
+	width: 800px;
+	/*background-color: #0af;*/
+	padding:30px;
+}
+
+.inner {
+/*	position: absolute;
+*/	height: 80%;
+width: 40%;
+/*background-color: brown;*/
+display: inline-block;
+padding:13px;
+}
+
+
+
+
+.outer2 {
+	width: 400px;
+	height: 200px;
+	background-color: blue;
+	padding: 20px;
+	display: inline-block;
+}
+
+
+.inner2 {
+	width: 400px;
+	height: 200px;	
+	background-color: brown;
+	padding: 20px;
+
+
+}
+
+div {
+	border:1px solid grey;
+
+}
+
+#parent-div {
+	width: 900px;
+	height: 300px;
+	display: inline-flex;
+	margin: auto;
+}
+
+.flexdiv {
+	width: 40%;
+	height: 80%;
+	/*background-color: brown;*/
+	margin: auto;
+	border: 1px solid grey;
+	display: inline-flex;
+}
+
