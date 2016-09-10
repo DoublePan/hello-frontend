@@ -1,0 +1,27 @@
+* {
+	font-size: 1rem;
+}
+
+
+label.field-label {
+	font-weight: bold;
+}
+
+button {
+	background-color: #2F79BA;
+	color: white;
+	border: 1px solid white;
+	border-radius: 3px;
+}
+
+input {
+	border: 2px solid #a8a8a8;
+	border-radius: 3px;
+	outline: 0px;
+}
+
+#tip-p {
+	margin: 0px;
+	color: #a8a8a8;
+	padding-left: 3rem;
+}

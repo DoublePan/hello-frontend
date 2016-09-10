@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://weirongxu.github.io/ife2016-spaceplane/ -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>行星与飞船</title>
+<style type="text/css">body,html{width:100%;height:100%}.row:after{content:' ';display:table;clear:both}.pull-left{float:left}.pull-right{float:right}body{margin:0;padding:0;font-size:14px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}#canvas{background-color:#000;background-image:url(./assets/1205c7ecadf1e4d14e4aceaa089d87d2.jpg);background-size:cover;position:relative;display:block}#canvas div{box-sizing:border-box}.panel{color:#bdbdbd}.creater,.log,.spaceplane-list{border:1px solid gray;padding:10px;margin:0;border-radius:10px}.creater{top:0}.creater,.spaceplane-list{position:fixed;left:0;background-color:hsla(0,0%,100%,.1)}.spaceplane-list{bottom:0}.spaceplane-list ul{height:100px;width:350px;list-style-type:none;padding:0;margin:0}.data-table,.spaceplane-list ul li{display:none}.data-table{position:fixed;right:0;top:0;background-color:hsla(0,0%,100%,.1);border-collapse:collapse;text-align:center;border-bottom:1px solid #bbb}.data-table thead{background-color:#bbb}.data-table thead th{color:#000;padding:5px 10px}.data-table tbody td{border:1px solid #bbb}.log{position:fixed;right:0;bottom:0;background-color:hsla(0,0%,100%,.1)}.log label{padding-bottom:10px;display:block}.log .list{width:350px;height:400px;overflow:auto}</style></head>
+<body>
+  <canvas id="canvas" width="1080" height="618"></canvas>
+  <div class="panel">
+    <div class="creater">
+    <div><strong>动力系统:</strong></div>
+    <div>
+      
+        <label>
+          <input type="radio" name="powerType" value="1">
+          前进号 (速率30px/s, 能耗5%/s)
+          <br>
+        </label>
+      
+        <label>
+          <input type="radio" name="powerType" value="2">
+          奔腾号 (速率50px/s, 能耗7%/s)
+          <br>
+        </label>
+      
+        <label>
+          <input type="radio" name="powerType" value="3">
+          超越号 (速率80px/s, 能耗9%/s)
+          <br>
+        </label>
+      
+        <label>
+          <input type="radio" name="powerType" checked="" value="4">
+          核动力号 (速率200px/s, 能耗10%/s)
+          <br>
+        </label>
+      
+        <label>
+          <input type="radio" name="powerType" value="5">
+          光速号 (速率500px/s, 能耗12%/s)
+          <br>
+        </label>
+      
+        <label>
+          <input type="radio" name="powerType" value="6">
+          曲率驱动号 (速率1000px/s, 能耗14%/s)
+          <br>
+        </label>
+      
+    </div>
+    <div><strong>能源系统:</strong></div>
+    <div>
+      
+        <label>
+          <input type="radio" name="energyType" checked="" value="1">
+          劲量型 (补充能源速度2%/s)
+          <br>
+        </label>
+      
+        <label>
+          <input type="radio" name="energyType" value="2">
+          光能型 (补充能源速度2%/s)
+          <br>
+        </label>
+      
+        <label>
+          <input type="radio" name="energyType" value="3">
+          永久型 (补充能源速度4%/s)
+          <br>
+        </label>
+      
+        <label>
+          <input type="radio" name="energyType" value="4">
+          外挂型 (补充能源速度20%/s)
+          <br>
+        </label>
+      
+    </div>
+    <button class="create">新的飞船起飞</button>
+  </div>
+    <div class="spaceplane-list">
+  <ul>
+    
+      <li data-id="1" style="display: list-item;">
+        对1号下达命令
+        <button data-command="run">开始飞行</button>
+        <button data-command="stop">停止飞行</button>
+        <button data-command="destory">销毁</button>
+      </li>
+    
+      <li data-id="2" style="display: list-item;">
+        对2号下达命令
+        <button data-command="run">开始飞行</button>
+        <button data-command="stop">停止飞行</button>
+        <button data-command="destory">销毁</button>
+      </li>
+    
+      <li data-id="3">
+        对3号下达命令
+        <button data-command="run">开始飞行</button>
+        <button data-command="stop">停止飞行</button>
+        <button data-command="destory">销毁</button>
+      </li>
+    
+      <li data-id="4">
+        对4号下达命令
+        <button data-command="run">开始飞行</button>
+        <button data-command="stop">停止飞行</button>
+        <button data-command="destory">销毁</button>
+      </li>
+    
+  </ul>
+</div>
+    <table class="data-table" style="display: table;">
+      <thead>
+        <tr>
+          <th>飞船</th>
+          <th>动力系统</th>
+          <th>能源系统</th>
+          <th>当前飞行状态</th>
+          <th>剩余能耗</th>
+        </tr>
+      </thead>
+      <tbody>
+    
+      <tr data-id="1">
+        <td>1号</td>
+        <td>核动力号</td>
+        <td>劲量型</td>
+        <td class="status">停止中</td>
+        <td class="power">28%</td>
+      </tr>
+    
+      <tr data-id="2">
+        <td>2号</td>
+        <td>前进号</td>
+        <td>外挂型</td>
+        <td class="status">飞行中</td>
+        <td class="power">100%</td>
+      </tr>
+    
+      <tr data-id="3"></tr>
+    
+      <tr data-id="4"></tr>
+    
+  </tbody>
+    </table>
+    <div class="log">
+      <label>日志开关: <input type="checkbox" checked=""></label>
+      <div class="list"><div style="color: white;">广播适配, {"type":0,"id":1,"powerType":4,"energyType":1}</div><div style="color: white;">广播消息, 10100000100</div><div style="color: blue;">发射中心接受命令, {"type":0,"id":1,"energyType":1,"powerType":4}</div><div style="color: green;">发送成功, 10100000100</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001000110</div><div style="color: green;">发送成功, 11001000001000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001000110</div><div style="color: green;">发送成功, 11001000001000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001000110</div><div style="color: green;">发送成功, 11001000001000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001000110</div><div style="color: green;">发送成功, 11001000001000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001000110</div><div style="color: green;">发送成功, 11001000001000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001000110</div><div style="color: red;">重传, 11001000001000110</div><div style="color: white;">广播消息, 11001000001000110</div><div style="color: green;">发送成功, 11001000001000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001000110</div><div style="color: green;">发送成功, 11001000001000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001000110</div><div style="color: green;">发送成功, 11001000001000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001000110</div><div style="color: green;">发送成功, 11001000001000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001000110</div><div style="color: green;">发送成功, 11001000001000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001000110</div><div style="color: green;">发送成功, 11001000001000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001000110</div><div style="color: green;">发送成功, 11001000001000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001000110</div><div style="color: white;">广播适配, {"type":1,"id":1,"command":"run"}</div><div style="color: white;">广播消息, 101</div><div style="color: green;">发送成功, 11001000001000110</div><div style="color: blue;">1号飞船收到消息, {"type":1,"id":1,"command":"run"}</div><div style="color: green;">发送成功, 101</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":92}</div><div style="color: white;">广播消息, 10111000000000110</div><div style="color: green;">发送成功, 10111000000000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":84}</div><div style="color: white;">广播消息, 10101000000000110</div><div style="color: green;">发送成功, 10101000000000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":76}</div><div style="color: white;">广播消息, 10011000000000110</div><div style="color: red;">重传, 10011000000000110</div><div style="color: white;">广播消息, 10011000000000110</div><div style="color: green;">发送成功, 10011000000000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":68}</div><div style="color: white;">广播消息, 10001000000000110</div><div style="color: green;">发送成功, 10001000000000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":60}</div><div style="color: white;">广播消息, 1111000000000110</div><div style="color: green;">发送成功, 1111000000000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":52}</div><div style="color: white;">广播消息, 1101000000000110</div><div style="color: green;">发送成功, 1101000000000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":44}</div><div style="color: white;">广播消息, 1011000000000110</div><div style="color: green;">发送成功, 1011000000000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":36}</div><div style="color: white;">广播消息, 1001000000000110</div><div style="color: green;">发送成功, 1001000000000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":28}</div><div style="color: white;">广播消息, 111000000000110</div><div style="color: green;">发送成功, 111000000000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":20}</div><div style="color: white;">广播消息, 101000000000110</div><div style="color: green;">发送成功, 101000000000110</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":12}</div><div style="color: white;">广播消息, 11000000000110</div><div style="color: green;">发送成功, 11000000000110</div><div style="color: white;">广播适配, {"type":0,"id":2,"powerType":1,"energyType":4}</div><div style="color: white;">广播消息, 1000001001000</div><div style="color: blue;">发射中心接受命令, {"type":0,"id":2,"energyType":4,"powerType":1}</div><div style="color: green;">发送成功, 1000001001000</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":4}</div><div style="color: white;">广播消息, 1000000000110</div><div style="color: green;">发送成功, 1000000000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":6}</div><div style="color: white;">广播消息, 1100000000110</div><div style="color: green;">发送成功, 11001000001001010</div><div style="color: green;">发送成功, 1100000000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":8}</div><div style="color: white;">广播消息, 10000001000110</div><div style="color: green;">发送成功, 11001000001001010</div><div style="color: green;">发送成功, 10000001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":10}</div><div style="color: white;">广播消息, 10100001000110</div><div style="color: green;">发送成功, 11001000001001010</div><div style="color: white;">广播适配, {"type":1,"id":2,"command":"run"}</div><div style="color: white;">广播消息, 1001</div><div style="color: green;">发送成功, 10100001000110</div><div style="color: blue;">2号飞船收到消息, {"type":1,"id":2,"command":"run"}</div><div style="color: green;">发送成功, 1001</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":12}</div><div style="color: white;">广播消息, 11000001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 11000001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":14}</div><div style="color: white;">广播消息, 11100001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 11100001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":16}</div><div style="color: white;">广播消息, 100000001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 100000001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":18}</div><div style="color: white;">广播消息, 100100001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 100100001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":20}</div><div style="color: white;">广播消息, 101000001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 101000001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":22}</div><div style="color: white;">广播消息, 101100001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: red;">重传, 101100001000110</div><div style="color: white;">广播消息, 101100001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":28}</div><div style="color: white;">广播消息, 111000001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: red;">重传, 111000001000110</div><div style="color: white;">广播消息, 111000001000110</div><div style="color: green;">发送成功, 111000001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":30}</div><div style="color: white;">广播消息, 111100001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 111100001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":32}</div><div style="color: white;">广播消息, 1000000001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 1000000001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":34}</div><div style="color: white;">广播消息, 1000100001000110</div><div style="color: red;">重传, 11001000000001010</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: green;">发送成功, 1000100001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":36}</div><div style="color: white;">广播消息, 1001000001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 1001000001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":38}</div><div style="color: white;">广播消息, 1001100001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 1001100001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":40}</div><div style="color: white;">广播消息, 1010000001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 1010000001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":42}</div><div style="color: white;">广播消息, 1010100001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 1010100001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":44}</div><div style="color: white;">广播消息, 1011000001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: red;">重传, 1011000001000110</div><div style="color: white;">广播消息, 1011000001000110</div><div style="color: white;">广播适配, {"type":1,"id":1,"command":"stop"}</div><div style="color: white;">广播消息, 1000101</div><div style="color: green;">发送成功, 1011000001000110</div><div style="color: blue;">1号飞船收到消息, {"type":1,"id":1,"command":"stop"}</div><div style="color: green;">发送成功, 1000101</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":46}</div><div style="color: white;">广播消息, 1011100001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 1011100001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":48}</div><div style="color: white;">广播消息, 1100000001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 1100000001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":50}</div><div style="color: white;">广播消息, 1100100001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 1100100001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":52}</div><div style="color: white;">广播消息, 1101000001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 1101000001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":54}</div><div style="color: white;">广播消息, 1101100001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 1101100001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":56}</div><div style="color: white;">广播消息, 1110000001000110</div><div style="color: white;">广播适配, {"type":1,"id":2,"command":"stop"}</div><div style="color: white;">广播消息, 1001001</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 1110000001000110</div><div style="color: blue;">2号飞船收到消息, {"type":1,"id":2,"command":"stop"}</div><div style="color: green;">发送成功, 1001001</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":58}</div><div style="color: white;">广播消息, 1110100001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 1110100001000110</div><div style="color: white;">广播适配, {"type":1,"id":1,"command":"run"}</div><div style="color: white;">广播消息, 101</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001001010</div><div style="color: red;">重传, 101</div><div style="color: white;">广播消息, 101</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":60}</div><div style="color: white;">广播消息, 1111000001000110</div><div style="color: green;">发送成功, 11001000001001010</div><div style="color: blue;">1号飞船收到消息, {"type":1,"id":1,"command":"run"}</div><div style="color: green;">发送成功, 101</div><div style="color: green;">发送成功, 1111000001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":52}</div><div style="color: white;">广播消息, 1101000000000110</div><div style="color: green;">发送成功, 11001000001001010</div><div style="color: green;">发送成功, 1101000000000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":44}</div><div style="color: white;">广播消息, 1011000000000110</div><div style="color: green;">发送成功, 11001000001001010</div><div style="color: green;">发送成功, 1011000000000110</div><div style="color: white;">广播适配, {"type":1,"id":2,"command":"run"}</div><div style="color: white;">广播消息, 1001</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"stop","power":100}</div><div style="color: white;">广播消息, 11001000001001010</div><div style="color: blue;">2号飞船收到消息, {"type":1,"id":2,"command":"run"}</div><div style="color: green;">发送成功, 1001</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":36}</div><div style="color: white;">广播消息, 1001000000000110</div><div style="color: green;">发送成功, 11001000001001010</div><div style="color: green;">发送成功, 1001000000000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":28}</div><div style="color: white;">广播消息, 111000000000110</div><div style="color: red;">重传, 11001000000001010</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: green;">发送成功, 111000000000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":20}</div><div style="color: white;">广播消息, 101000000000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 101000000000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":12}</div><div style="color: white;">广播消息, 11000000000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 11000000000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":4}</div><div style="color: white;">广播消息, 1000000000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 1000000000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"run","power":6}</div><div style="color: white;">广播消息, 1100000000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 1100000000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":8}</div><div style="color: white;">广播消息, 10000001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 10000001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":10}</div><div style="color: white;">广播消息, 10100001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 10100001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":12}</div><div style="color: white;">广播消息, 11000001000110</div><div style="color: red;">重传, 11001000000001010</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: green;">发送成功, 11000001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":14}</div><div style="color: white;">广播消息, 11100001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 11100001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":16}</div><div style="color: white;">广播消息, 100000001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 100000001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":18}</div><div style="color: white;">广播消息, 100100001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 100100001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":20}</div><div style="color: white;">广播消息, 101000001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 101000001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":22}</div><div style="color: white;">广播消息, 101100001000110</div><div style="color: red;">重传, 11001000000001010</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: green;">发送成功, 101100001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":24}</div><div style="color: white;">广播消息, 110000001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 110000001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":26}</div><div style="color: white;">广播消息, 110100001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 110100001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div><div style="color: white;">广播适配, {"type":2,"id":1,"status":"stop","power":28}</div><div style="color: white;">广播消息, 111000001000110</div><div style="color: green;">发送成功, 11001000000001010</div><div style="color: green;">发送成功, 111000001000110</div><div style="color: white;">广播适配, {"type":2,"id":2,"status":"run","power":100}</div><div style="color: white;">广播消息, 11001000000001010</div></div>
+    </div>
+  </div>
+  <script src="./行星与飞船_files/main.js" type="text/javascript"></script>
+
+
+</body></html>

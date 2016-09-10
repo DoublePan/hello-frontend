@@ -17,27 +17,63 @@ ul
 		ul
 	li
 	ul
----------------------------------------------------------------------------->
-<ul id="cpp-tree">	
-	<li>CS</li>
+	---------------------------------------------------------------------------->
+	<ul id="cpp-tree">	
+		<li>CS</li>
 		<ul>
 			<li>Operating System</li>
-				<ul>
-					<li>Windows 10</li>
-					<li>Mac OS 11</li>
-					<li>Linux 2.3</li>
-				</ul>
+			<ul>
+				<li>Windows 10</li>
+				<li>Mac OS 11</li>
+				<li>Linux 2.3</li>
+			</ul>
 			<li>Database</li>
 			<li>Network</li>
 		</ul>
 
-	<li>English</li>
-	<ul>
-		<li>Oral Speaking</li>
-		<li>Listening</li>
-		<li>Reading</li>
-		<li>Writing</li>
+		<li>English</li>
+		<ul>
+			<li>Oral Speaking</li>
+			<li>Listening</li>
+			<li>Reading</li>
+			<li>Writing</li>
+		</ul>
 	</ul>
-</ul>
+
+<!-- 
+node-div & node-container-div pair
+---------------------------------------------------------------------------->
+
+<div class="node-container-div" id="tree-root">	
+	<div class="node-div"><span class="triangle-right"></span>CS
+		<div class="node-container-div">
+			<div class="node-div"><span class="triangle-right"></span>Operating System
+				<div class="node-container-div">
+					<div class="node-div">Windows 10</div>
+					<div class="node-div">Mac OS 11</div>
+					<div class="node-div">Linux 2.3</div>
+				</div>
+			</div>
+			<div class="node-div">Database</div>
+			<div class="node-div">Network</div>
+		</div>
+	</div>
+	<div class="node-div"><span class="triangle-right"></span>English
+		<div class="node-container-div">
+			<div class="node-div">Oral Speaking</div>
+			<div class="node-div">Listening</div>
+			<div class="node-div">Reading</div>
+			<div class="node-div">Writing</div>
+		</div>
+	</div>
+	<div class="node-div"><span class="triangle-right"></span>Business
+		<div class="node-container-div">
+			<div class="node-div">Accounting code to business</div>
+			<div class="node-div">Financial reports to business</div>
+
+		</div>
+	</div>
+</div>
+
 </body>
 </html>

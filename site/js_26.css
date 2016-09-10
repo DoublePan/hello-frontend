@@ -1,0 +1,21 @@
+#canvas-div,#cavas-div canvas {
+	display: absolute;
+	width: 600px;
+	height: 300px;
+}
+
+canvas {
+	border: 1px solid black;
+	width: 600px;
+	height: 300px;
+	position: absolute;
+	background-color: black;
+}
+
+#animate-canvas {
+	background-color: transparent;
+}
+
+#create-div,#cmd-div {
+	margin:10px 0px;
+}
