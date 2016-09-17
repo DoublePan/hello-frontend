@@ -1,0 +1,17 @@
+.tag {
+	border: 0.2px solid grey;
+	color: white;
+	height:30px;
+	line-height: 30px;
+	font-size: 20px;
+	background-color: #0cf;
+	display: inline-block;
+	margin:6px;
+	padding:2px;
+}
+
+div.tag:hover {
+
+	background-color: #e00;
+
+}
