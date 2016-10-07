@@ -1,0 +1,16 @@
+.input-div {
+/*	width: 100%;
+	margin: 10px;*/
+}
+
+
+.input-label {
+	width: 28%;
+	display: inline-block;
+	text-align: right;
+	margin:2px 0px;
+}
+
+#aqi-table {
+	/*display: none;*/
+}

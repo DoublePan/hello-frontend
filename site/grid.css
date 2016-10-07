@@ -1,0 +1,16 @@
+@media   (min-width: 768px) {
+	.col-3 {
+	width: 33.33%;
+	}
+}
+	
+@media   (min-width: 768px) {
+	.col-3 {
+	float: left;
+	}
+}	
+
+.col-3 {
+	background-color: #eeeedd;
+}
+

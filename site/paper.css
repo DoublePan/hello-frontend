@@ -1,0 +1,39 @@
+<style type="text/css">
+		body {
+			background-color: grey;
+			margin: 10px;
+		}
+
+		#id_paper {
+			position:absolute;
+			border: 0px;
+			width:980px;
+			height: 1386px;
+			border: 1px solid black;
+			background-color: white;
+		}
+		#id_content {
+			border: 1px solid;
+			border-color: #938e8c white;
+			width:	892px;
+			height: 1264px;
+			position:absolute;
+			top: 61px;
+			left: 44px;
+			z-index: 20;
+		
+		}
+		#id_logo {
+			width:110px;
+			height: 60px;
+			background-color: brown;			
+			position: absolute;
+			left: 44px;
+			z-index: 10;
+			color: white;
+			text-align: center;
+			line-height: 100px;
+			vertical-align: bottom;
+		}
+		
+</style>

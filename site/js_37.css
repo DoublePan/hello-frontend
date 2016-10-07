@@ -1,0 +1,43 @@
+body {
+	position: relative;
+	margin: 0px;
+}
+#lightbox-div {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	/*border: 1px solid red;*/
+	background-color: grey;
+	opacity: 0.8;
+}
+
+#msg-div {
+	position: fixed;
+	width: 300px;
+	height: 150px;
+	border: 1px solid black;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: white;
+}
+
+#msg-header-div {
+	border-bottom: 1px solid black;
+	height: 30px;
+	width: 100%;
+	background-color: #011;
+	color: white;
+}
+
+#msg-body-div {
+	width: 100%;
+
+}
+
+#msg-btn-div {
+	position:absolute;
+	bottom: 3px;
+	right: 3px;
+}
