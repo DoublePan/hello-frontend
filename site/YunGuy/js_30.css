@@ -1,11 +1,13 @@
 * {
-	font-size: 1rem;
+	font-size: 1.5rem;
 }
 
-
+form {
+	margin-top: 10%;
+}
 form>div>h3 {
 	font-weight: bold;
-	width: 80px;
+	width: 20%;
 	margin: 0px;
 	display: inline-block;
 	text-align: right;
@@ -18,11 +20,13 @@ form>div>input,form>div>textarea {
 	border-radius: 3px;
 	outline: 0px;
 	margin-top: 5px;
+    width:60%;
+
 }
 
 form>div>textarea {
-	margin-left: 85px;
-	width:195px;
+	margin-left: 22%;
+	height: 250px;
 }
 
 form>div>p {
@@ -39,5 +43,6 @@ form>button {
 	border: 1px solid white;
 	border-radius: 3px;
 	margin-top: 8px;
-	margin-left: 105px;
+	padding: 6px 20px;
+	margin-left: 40%;
 }
