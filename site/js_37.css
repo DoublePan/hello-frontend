@@ -29,6 +29,7 @@ body {
 	width: 100%;
 	background-color: #011;
 	color: white;
+	cursor: move;
 }
 
 #msg-body-div {

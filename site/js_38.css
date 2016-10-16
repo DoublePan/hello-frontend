@@ -1,0 +1,15 @@
+.sorted-table {
+    border-collapse: collapse;
+}
+
+.header-tr {
+    border: 1px solid grey;
+    padding: 5px 20px;
+    color: white;
+    background-color: black;
+}
+
+td {
+    border: 1px solid grey;
+    padding: 5px 20px;
+}
