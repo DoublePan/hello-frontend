@@ -7,7 +7,6 @@ window.onload=function() {
 	registerForm.addEventListener('focus',showTip,true);
 	registerForm.addEventListener('blur',showValidationMsg,true);
 	registerForm.addEventListener('submit',submitValidation,true);
-	console.log(validationResult);
 }
 
 
@@ -41,11 +40,14 @@ function showValidationMsg() {
 
 
 function submitValidation() {
-	if(validationResult==0) {
-	alert("validation success!");
+	// if(validationResult==0) {
+	// alert("validation success!");
+	// console.log("success: "+registerForm.email.value);
 
-	} else {
-	alert("validation failed!");
+	// } else {
+	// alert("validation failed!");
 
-	}
+	// }
 }
+
+
