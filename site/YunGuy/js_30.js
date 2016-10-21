@@ -69,19 +69,28 @@ function submitValidation() {
 
 
     var validateFailCnt = 0;
+    var allFields = registerForm.elements;
     try {
-        for (var ele of registerForm.elements) {
-            if (!validateElement(ele)) {
+        /*        for (var ele of registerForm.elements) 
+         *   only supported in chrome
+         */
+        for (var i = 0; i < allFields.length; i++) {
+
+            if (!validateElement(allFields[i])) {
                 validateFailCnt++;
             }
-
         }
+
+
+
+
+
+
     } catch (error) {
         console.log(error.message);
     }
 
 
-    console.log(validateFailCnt);
     if (validateFailCnt != 0) {
         event.preventDefault();
     }
