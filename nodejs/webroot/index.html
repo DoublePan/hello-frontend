@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;" />
+    <meta charset="utf-8"/>
+    <title>云哥儿的诗</title>
+    <link rel="stylesheet" type="text/css" href="js_30.css">
+</head>
+
+<body>
+    <form action="fsPoet.addPoet.node" id="register-form" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+        <div id="email-div">
+            <h3>邮箱</h3>
+            <input type="text" name="email" />
+            <p>您查询和接收诗歌的邮箱地址</p>
+        </div>
+        <div id="poetSpecification-div">
+            <h3>诗歌要求</h3>
+            <br>
+            <textarea name="poetSpecification"></textarea>
+            <p>您的诗歌要求</p>
+        </div>
+        <div>
+            <input class="fileinput" type="file" name="imgfile">
+            <p class="imgtip">您的情境</p>
+        </div>
+        <button type="submit" id="submit-btn">提交</button>
+    </form>
+</body>
+
+<script type="text/javascript" src="js_30.js"></script>
+
+</html>

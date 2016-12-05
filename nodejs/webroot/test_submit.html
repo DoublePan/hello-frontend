@@ -1,0 +1,15 @@
+	<!-- HTML -->
+	<form id="test-form" onsubmit="/*return*/ checkForm()">
+	    <input type="text" name="test">
+	    <button type="submit">Submit</button>
+	</form>
+	
+	<script>
+	function checkForm() {
+	    var form = document.getElementById('test-form');
+	    // 可以在此修改form的input...
+	    // 继续下一步:
+	    // return true;
+	    event.preventDefault();
+	}
+	</script>
