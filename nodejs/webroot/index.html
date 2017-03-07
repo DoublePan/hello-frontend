@@ -1,33 +1,29 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html;" />
-    <meta charset="utf-8"/>
     <title>云哥儿的诗</title>
-    <link rel="stylesheet" type="text/css" href="js_30.css">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="formAndAccordion.css">
+    
 </head>
 
 <body>
-    <form action="fsPoet.addPoet.node" id="register-form" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-        <div id="email-div">
-            <h3>邮箱</h3>
-            <input type="text" name="email" />
-            <p>您查询和接收诗歌的邮箱地址</p>
-        </div>
-        <div id="poetSpecification-div">
-            <h3>诗歌要求</h3>
-            <br>
-            <textarea name="poetSpecification"></textarea>
-            <p>您的诗歌要求</p>
-        </div>
-        <div>
-            <input class="fileinput" type="file" name="imgfile">
-            <p class="imgtip">您的情境</p>
-        </div>
-        <button type="submit" id="submit-btn">提交</button>
+<!-- action="http://cloud.bmob.cn/e60f1316e7d41848/newPoetRequirement"  -->
+    <form action="fsPoet.addPoet.node" id="register-form" method="post" enctype="multipart/form-data">
+        <h3>邮箱</h3>
+        <input id="name-input" type="text" name="email" />
+        <p>您查询和接收诗歌的邮箱地址</p>
+        <h3>诗歌要求</h3>
+        <br>
+        <textarea id="req-input" name="poetSpecification"></textarea>
+        <p>您的诗歌要求</p>
+        <h3>图片</h3>
+        <input type="file" name="imgfile" accept="image/png,image/gif,image/jpeg"/>
+        <p>女神或男神或十里桃花林</p>
+        <button id="submit-btn" type="submit" >提交</button>
     </form>
 </body>
-
-<script type="text/javascript" src="js_30.js"></script>
-
+<script type="text/javascript" src="DpQuery.js"></script>
+<script type="text/javascript" src="peotReq.js"></script>
 </html>

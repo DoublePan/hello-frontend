@@ -1,0 +1,64 @@
+
+/* CSS Document */
+
+*{ margin:0;padding:0;}
+body,div,dl,dt,dd,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,input,textarea,blockquote,th,td { margin:0; padding:0;}
+table { border-collapse:collapse; font-size:12px;}
+img{ border:0; vertical-align:bottom;}
+input,textarea,select,button{ padding:1px; font-size:12px; vertical-align:middle;}
+ol,ul { list-style:none;}
+i,cite,em{font-style:normal;}
+caption,th { text-align:left;}
+button { cursor:pointer;}
+body { font:14px/1.6 microsoft yahei,Verdana; color:#474747;}
+textarea,input,select,body{ font-size:14px;}
+h2{ font-size:12px;}
+h1,h3, h4, h5, h6, p, ol, ul, li, dl, dd{ font:12px/1.6 microsoft yahei,Verdana;}
+fieldset,form{ background:none; border:none; padding:0; margin:0;}
+
+
+.clear20{ clear:both;font-size:0;line-height:0; display:block; height:20px; visibility:hidden;}
+
+a{ text-decoration:none; color:#004185;font-weight: bold}
+a:hover{ text-decoration:underline;}
+
+ul,li,dt,dl,dd{ display:block;}
+a img{ border:0;}
+.clear{clear:both;height:0;line-height:0;font-size:0;overflow:hidden;}
+.clearfix{*zoom:1} .clearfix:after{content:"\20";clear:both;height:0;display:block;overflow:hidden}
+.tab .tab-hd{margin-bottom:10px;}
+.tabArea {z-index:90;width:298px;height:21px;top:51px;left:1px;position:absolute;overflow: hidden}
+.tabArea span{width:84px;height:21px;line-height:32px;background-color:transparent;overflow:hidden;zoom:1;margin-bottom:-2px;float:left;text-align:center;cursor:pointer;}
+.tab-ctrl .current{border-bottom:2px solid #07d;}
+.mainbox{ height:248px; width:298px; background:#fff; overflow:hidden; border:1px solid #004185;}
+.heading{ width:298px;height:52px;top:-1px;position:absolute;overflow:hidden;}
+.tabNo0{background: url() no-repeat; width:298px;height:20px;overflow:hidden;top:0px;}
+.tabNo1{background: url() 0 -23px no-repeat;width:298px;height:20px;overflow:hidden;top:0px;}
+.tabNo2{background: url() 0 -46px no-repeat;width:298px;height:20px;overflow:hidden;top:0px;}
+.tab { position:absolute;
+	left:0;
+	top:42px;
+	height:20px;
+	width:300px;
+	overflow:hidden;
+	}
+.tab li{ float:left; width:300px; height:20px;cursor:pointer; display:block; text-align:center; font-size:12px; overflow:hidden;color:#004185;}
+
+
+.cont li{ position:absolute; top: 88px;height:374px; margin-top:-6px;display:block; font-size:14px; line-height:64px;  width:300px; overflow:hidden; color:#07d;}
+
+.article{ height:158px; width:298px; overflow:hidden; position:absolute;}
+.article_cot{ padding:3px;height:40px;background:url(doc.png) no-repeat 21px 4px;}
+.article_cot span{ display:block; margin-top:-26px; margin-left:43px;font-size:14px; color:#004185;  }
+.article_cot p{ width:250px;margin-top:-21px;margin-left:43px;color:#004185;line-height:16px;}
+.article_link{ padding-bottom:5px; background:url(doc.png) no-repeat 0 6px; padding-left:18px; font-size:14px; line-height:24px; font-weight:bold; padding-top:3px; }
+.core_cot { position:absolute;width:282px;height:16px;top:-17px; left:10px; }
+.core_cot p{position:absolute;width:145px;height:91px;top:61px; left:136px;font-size:12px;line-height: 13px;color: #004185;}
+.footer{ position:absolute;top:119px;left:41px;width:67px;height:23px;width:300px;}
+.footer1{ position:absolute;top:119px;left:239px;width:67px;height:23px;width:300px;}
+#fotImg{position:absolute;top:-22px;left:-19px;width:17px;height:16px;}
+#fotImg1{position:absolute;top:-22px;left:-19px;width:17px;height:16px;}
+#core1_img_link{position:absolute;left:9px;top:45px;}
+#core2_img_link{position:absolute;left:9px;top:45px;}
+.footer a{  display:inline-block;  padding:0px 0px; font-size:12px; text-decoration: underline; font-weight:normal;line-height:16px; color:#004185; }
+.footer1 a{  display:inline-block;  padding:0px 0px; font-size:12px; text-decoration: underline; font-weight:normal;line-height:16px; color:#004185; }

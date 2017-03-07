@@ -1,0 +1,78 @@
+/****************form validation*******************/
+* {
+	font-size: 1.5rem;
+}
+
+form {
+	margin-top: 5%;
+}
+form>div>h3 {
+	font-weight: bold;
+	width: 20%;
+	margin: 0px;
+	display: inline-block;
+	text-align: right;
+}
+
+
+
+form>div>input,form>div>textarea {
+	border: 2px solid #a8a8a8;
+	border-radius: 3px;
+	outline: 0px;
+	margin-top: 5px;
+    width:60%;
+
+}
+
+form>div>textarea {
+	margin-left: 22%;
+	height: 250px;
+}
+
+form>div>p {
+	color: #a8a8a8;
+	margin: 0px;
+	visibility: hidden;
+	margin-left: 22%;
+}
+
+
+form>button {
+	background-color: #2F79BA;
+	color: white;
+	border: 1px solid white;
+	border-radius: 3px;
+	margin-top: 8px;
+	padding: 6px 20px;
+	margin-left: 40%;
+}
+
+/****************accordion*******************/
+div.accordion h3.acc-select {
+	cursor:pointer;
+	padding:.5em;
+	border:1px solid #c5c5c5;
+	margin: 5px 2px 0px 2px;
+	color: #fff;
+	background-color: #007fff;
+}
+div.accordion  div.acc-select {
+	border:1px solid #c5c5c5;
+	margin: 0px 2px 0px 2px;
+
+}
+
+
+div.accordion  h3.acc-unselect {
+	cursor:pointer;
+	padding:.5em;
+	border:1px solid #c5c5c5;
+	background-color: #f6f6f6;
+	margin: 5px 2px 0px 2px;
+}
+div.accordion  div.acc-unselect {
+	border:1px solid #c5c5c5;
+	margin: 0px 2px 0px 2px;
+	display:none;
+}

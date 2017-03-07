@@ -3,16 +3,55 @@
 <head>
 	<title>jQuery Task01</title>
 	<link rel="stylesheet" type="text/css" href="jq_01.css">
-	<script type="text/javascript" src="jquery-3.1.0.js"></script>
 	<script type="text/javascript" defer="true" src="jq_01.js"></script>
-
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
- <p>cpp</p>
- <p>good</p>
- <span>luck</span>
- <select id="satellites-select">
- 	<option>Pls Choose</option>
- </select>
+ <form>
+	 <p id="p1Id">Name<input id="nameId" type="text" name="name"></p>
+	 <p>Wife<input id="wifeId" type="text" name="gender"></p>
+	 <span>Planet</span>
+	 <select id="planetId" name="planets">
+	 	<option>Pls Choose</option>
+	 	<option>Sun</option>
+	 	<option>Earth</option>
+	 </select><br/>
+	 <span>Handsome</span><input id="handsomeId" type="checkbox" name="cb" ><br/>
+	 <input type="submit" name="submit" value="submit">
+ </form>
+
+<div id="accordion" class="acc-base">
+  <h3 >Section 1</h3>
+	  <div >
+	    <p>
+	    <span>
+	    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+	    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sitamet, nunc. 
+	    </span>
+	    <hr/>
+	    <span>
+	    Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+	    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+	    </span>
+	    </p>
+	  </div>
+  <h3 >Section 2</h3>
+	  <div >
+	    <p>
+	    <span>
+	    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+	    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sitamet, nunc. 
+	    </span>
+	    <hr/>
+	    <span>
+	    Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+	    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+	    </span>
+	    </p>
+	  </div>
+</div>
+
 </body>
 </html>

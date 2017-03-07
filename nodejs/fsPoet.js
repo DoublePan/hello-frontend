@@ -2,33 +2,25 @@ var fileName='./webdata/poets.txt';
 var fs=require("fs");
 var qs=require('querystring');
 var formidable=require('formidable');
-var dpform=require('./dpform.js');
+var dpform=require('./dpform_buffer.js');
+var PoetVO=require('./poetVO').PoetVO;
 var rl=require('readline');
 //var a=0;
 
 module.exports = {
     listPoets: function(req, res) {
-       // try {
-       		loadOrInitTask(fileName, function(tasks) {
-		        for (var i in tasks) {
-		            console.log(tasks[i]);
-		        }
-			});
-       // } catch (e) {
-       // 		throw e;
-       // }
-    	
+       listPoetsImpl(req, res);   	
     },
     addPoet: function(req,res) {
         //a++; a is a global varible shared by all require('fsPoet.js');
        
-    	processPoetForm(req,res);    	
+    	addPoetImpl(req,res);    	
     }
 };
 
 
 
-function processPoetForm(req,res) {
+function addPoetImpl(req,res) {
     //form enctype='text/plain'
     if(!isFormData(req)) {
        
@@ -50,43 +42,43 @@ function processPoetForm(req,res) {
     } else {
         //form enctype='multipart/form-data'
 //-----------using dpform
-/*        var formData=new dpform.FormData();
-        formData.parse(req,function(fields,files) {
+        var incomingData=new dpform.IncomingData();
+        incomingData.parse(req,function(fields,files) {
             console.log(fields);
             console.log(files);
+            var poetVO=new PoetVO(fields.email,fields.poetSpecification);
+            poetVO.insertRow(function(err,poetId) {
+                console.log(poetId);
+                if (files.imgfile && files.imgfile.origName!='') {
+                    fs.rename(files.imgfile.path,incomingData.config.path+poetId.toString()+files.imgfile.extName);
+                }
+                
+            });
+            
+            
             res.writeHead(200, { 'Content-Type': 'text/html' });
-              res.end('<h1>' + 'Request Accepted!' + '</h1>');
+            res.end('<h1>' + 'Request Accepted!' + '</h1>');
         });
-*/
 
-//-----------using readline: EOL caused 'read by line' not fitting in the file situation.
+
+//-----------using formidable modual
 /*
-        var rlOnReq=rl.createInterface({
-            input: req
-        });
-
-        rlOnReq.on('line',function(line) {
-            console.log('======cpp delimiter line============')
-            console.log(line);
-        });
+        var form=new formidable.IncomingForm();
+        form.uploadDir='./webdata';
+        try {
+            form.parse(req,function(err,fields,files) {
+                if (err) {console.log(err.message);}
+                console.log(fields);
+                console.log(files);
+                fs.rename(files.imgfile.path,form.uploadDir+'/'+fields.email+' '+files.imgfile.name);  //filename=email+' '+original name
+                console.log('Completed');
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.end('<h1>' + 'Request Accepted!' + '</h1>');
+            });
+        } catch (e) {
+            console.log(e.message);
+        }
 */
-
-//-----------using req.on
-
-        var formData='';// if (err) throw err;
-        req.on('data',function(chunk) {
-            formData+=chunk;
-            console.log('======cpp delimiter chunk============'+chunk.length)
-            console.log(formData);
-        });
-        req.on('end',function(err) {
-             res.writeHead(200, { 'Content-Type': 'text/html' });
-             res.end('<h1>' + 'Request Accepted!' + '</h1>');
-             //console.log('======cpp delimiter formData============')
-             //console.log(formData);
-             //console.log(qs.parse(formData)); //NOT work for multipart/form-data
-        })
-
 
 //-----------using formidable mudual
 /*      var form=new formidable.IncomingForm();
@@ -111,53 +103,45 @@ function processPoetForm(req,res) {
         form.parse(req);
 */
 
-/*      
-        try {
-            form.parse(req,function(err,fields,files) {
-                if (err) {console.log(err.message);}
-                console.log(fields);
-                console.log(files);
-                fs.rename(files.imgfile.path,form.uploadDir+'/'+fields.email+' '+files.imgfile.name);  //filename=email+' '+original name
-                console.log('Completed');
-                res.writeHead(200, { 'Content-Type': 'text/html' });
-                res.end('<h1>' + 'Request Accepted!' + '</h1>');
-            });
-        } catch (e) {
-            console.log(e.message);
-        }
- */
+ 
 
     }
 }
 
 
-
-
-
-//common functions---utils
-function loadOrInitTask(fileName, cb)  {
-    fs.exists(fileName, function(exists) {
-        var poets = [];
-        if (exists) {
-            fs.readFile(fileName, 'utf8', function(err, data) {
-                if (err) throw err;
-                //data = data.toString();
-
-                try {
-                    tasks = JSON.parse(data || '[]');
-                } catch (e) {
-                    console.log(e.message);
+function listPoetsImpl(req, res)  {
+    if(!isFormData(req)) {
+       
+        var formData='';// if (err) throw err;
+        req.on('data',function(chunk) {
+            formData+=chunk;
+        });
+        req.on('end',function(err) {
+            // if (err) throw err;
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+             
+            formDataJSON=qs.parse(formData);         
+            console.log(formDataJSON);
+            var poetVO=new PoetVO(formDataJSON.email,"");
+            poetVO.queryRows(function(err,rows) {
+                //console.log(rows);
+                var poetDetails={};
+                for (var i = 0; i < rows.length; i++) {
+                    //console.log(rows[i].poet_detail);
+                    poetDetails[i]=rows[i].poet_detail;
+                    //res.write('<h1>' + rows[i].poet_detail + '</h1>'); 
                 }
+            res.end(JSON.stringify(poetDetails));     
                 
-                cb(poets);
             });
-        } else {
-            cb([]);
-        }
-    });
+        });    
+    } else {
+        //to do: if queryPoet form's enctype="multipart/form-data"
+    }
 }
 
 
+//common functions---utils
 function isFormData(req) {
     var type=req.headers['content-type']+'';
     return 0===type.indexOf('multipart/form-data');

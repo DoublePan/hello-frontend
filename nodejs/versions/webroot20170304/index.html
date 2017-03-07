@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>云哥儿的诗</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="formAndAccordion.css">
+    <script type="text/javascript" src="peotReq.js" defer="true"></script>
+</head>
+
+<body>
+<!-- action="http://cloud.bmob.cn/e60f1316e7d41848/newPoetRequirement"  -->
+    <form action="fsPoet.addPoet.node" id="register-form" method="post" enctype="multipart/form-data">
+        <div id="email-div">
+            <h3>邮箱</h3>
+            <input type="text" name="email" />
+            <p>您查询和接收诗歌的邮箱地址</p>
+        </div>
+        <div id="poetSpecification-div">
+            <h3>诗歌要求</h3>
+            <br>
+            <textarea name="poetSpecification"></textarea>
+            <p>您的诗歌要求</p>
+        </div>
+        <div id="pic-div">
+            <h3>图片</h3>
+            <input type="file" name="imgfile" accept="image/png,image/gif,image/jpeg"/>
+            <p>女神或男神或十里桃花林</p>
+        </div>
+        <button type="submit" id="submit-btn">提交</button>
+    </form>
+</body>
+
+</html>
